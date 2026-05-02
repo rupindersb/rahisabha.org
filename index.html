@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jaswant Singh Rahi — ਜਸਵੰਤ ਸਿੰਘ ਰਾਹੀ | Rahi Sabha</title>
+  <meta name="description" content="Official memorial website for Jaswant Singh Rahi (1913–1996) — Punjabi poet, writer, communist, and freedom fighter. Rashtriya Kavi of India." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Sans+Gurmukhi:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── ROOT TOKENS ─── */
+    :root {
+      --saffron:   #C8571B;
+      --saffron-lt:#E07040;
+      --ink:       #1A1410;
+      --parchment: #F5EFE3;
+      --cream:     #FDFAF4;
+      --gold:      #B8922A;
+      --gold-lt:   #D4AA45;
+      --muted:     #7A6A5A;
+      --border:    #D8CEBC;
+      --ff-display: 'Playfair Display', Georgia, serif;
+      --ff-body:    'EB Garamond', Georgia, serif;
+      --ff-punjabi: 'Noto Sans Gurmukhi', sans-serif;
+    }
+
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--ff-body);
+      font-size: 18px;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── GRAIN OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.6;
+    }
+
+    /* ─── NAVIGATION ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+      height: 64px;
+      background: rgba(253, 250, 244, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-family: var(--ff-punjabi);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--saffron);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--ff-body);
+      font-size: 0.875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--saffron); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      background: var(--ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 8rem 4rem 5rem;
+      position: relative;
+    }
+
+    /* Decorative diagonal slash */
+    .hero-left::after {
+      content: '';
+      position: absolute;
+      top: 0; right: -60px; bottom: 0;
+      width: 120px;
+      background: var(--ink);
+      transform: skewX(-4deg);
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--ff-punjabi);
+      font-size: 1.1rem;
+      color: var(--gold-lt);
+      letter-spacing: 0.04em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.3s forwards;
+    }
+
+    .hero-title {
+      font-family: var(--ff-display);
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--parchment);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.5s forwards;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--saffron-lt);
+    }
+
+    .hero-subtitle {
+      font-family: var(--ff-punjabi);
+      font-size: 1.6rem;
+      color: rgba(245, 239, 227, 0.55);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.7s forwards;
+    }
+
+    .hero-dates {
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.9s forwards;
+    }
+
+    .hero-right {
+      background: var(--parchment);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 4rem 5rem 7rem;
+      position: relative;
+    }
+
+    .hero-quote-mark {
+      font-family: var(--ff-display);
+      font-size: 10rem;
+      line-height: 0.6;
+      color: var(--gold);
+      opacity: 0.18;
+      position: absolute;
+      top: 7rem;
+      left: 5rem;
+    }
+
+    .hero-quote {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      line-height: 1.65;
+      color: var(--ink);
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      animation: fadeUp 1s ease 1.1s forwards;
+    }
+
+    .hero-quote-attr {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.3s forwards;
+    }
+
+    /* decorative knotwork border */
+    .hero-ornament {
+      margin-top: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.4s forwards;
+    }
+
+    .hero-ornament-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+
+    .hero-ornament-diamond {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* ─── SECTION COMMONS ─── */
+    section { padding: 7rem 0; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--saffron);
+    }
+
+    .section-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--saffron);
+    }
+
+    /* ─── INTRO STRIP ─── */
+    .intro-strip {
+      background: var(--saffron);
+      padding: 2rem 0;
+      overflow: hidden;
+    }
+
+    .intro-scroll {
+      display: flex;
+      gap: 4rem;
+      animation: scrollText 30s linear infinite;
+      white-space: nowrap;
+    }
+
+    .intro-scroll span {
+      font-family: var(--ff-punjabi);
+      font-size: 1.1rem;
+      color: var(--parchment);
+      opacity: 0.85;
+      flex-shrink: 0;
+    }
+
+    .intro-scroll .dot {
+      color: var(--gold-lt);
+      opacity: 1;
+    }
+
+    @keyframes scrollText {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ─── BIOGRAPHY ─── */
+    .bio-section {
+      background: var(--cream);
+    }
+
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .bio-portrait {
+      position: relative;
+    }
+
+    .bio-portrait-frame {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Illustration placeholder with poetic visual */
+    .bio-portrait-art {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, #2a1f14 0%, #1a1410 60%, #0d0a08 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bio-portrait-art::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 50% 30%, rgba(200,87,27,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 80% 60% at 30% 80%, rgba(184,146,42,0.08) 0%, transparent 60%);
+    }
+
+    .bio-portrait-gurmukhi {
+      font-family: var(--ff-punjabi);
+      font-size: 4.5rem;
+      font-weight: 300;
+      color: rgba(245,239,227,0.12);
+      letter-spacing: -0.02em;
+      text-align: center;
+      line-height: 1.3;
+      position: relative;
+      z-index: 1;
+    }
+
+    .bio-portrait-name-art {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 1.8rem;
+      color: rgba(200,87,27,0.6);
+      position: relative;
+      z-index: 1;
+    }
+
+    .bio-portrait-year {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: rgba(184,146,42,0.5);
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* decorative offset border */
+    .bio-portrait::after {
+      content: '';
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: -14px;
+      bottom: -14px;
+      border: 2px solid var(--gold);
+      z-index: -1;
+      opacity: 0.4;
+    }
+
+    .bio-content p {
+      margin-bottom: 1.5rem;
+      color: #3A2E24;
+      font-size: 1.05rem;
+    }
+
+    .bio-facts {
+      margin-top: 2.5rem;
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .bio-fact-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .bio-fact-value {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* ─── AWARDS BAND ─── */
+    .awards-band {
+      background: var(--ink);
+      padding: 5rem 0;
+    }
+
+    .awards-band .section-label { color: var(--gold-lt); }
+    .awards-band .section-label::before { background: var(--gold-lt); }
+    .awards-band .section-title { color: var(--parchment); }
+
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      margin-top: 3rem;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .award-card {
+      background: var(--ink);
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: background 0.3s;
+    }
+
+    .award-card:hover {
+      background: #221811;
+    }
+
+    .award-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--saffron);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .award-card:hover::before { transform: scaleX(1); }
+
+    .award-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .award-title {
+      font-family: var(--ff-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--parchment);
+      margin-bottom: 0.5rem;
+    }
+
+    .award-desc {
+      font-size: 0.9rem;
+      color: rgba(245,239,227,0.55);
+      line-height: 1.6;
+    }
+
+    .award-year {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ─── WORKS ─── */
+    .works-section {
+      background: var(--parchment);
+    }
+
+    .works-intro {
+      max-width: 620px;
+      margin-bottom: 4rem;
+    }
+
+    .works-intro p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .works-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 3rem;
+    }
+
+    .works-tab {
+      padding: 0.75rem 1.75rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: var(--ff-body);
+    }
+
+    .works-tab.active {
+      color: var(--saffron);
+      border-bottom-color: var(--saffron);
+    }
+
+    .works-panel { display: none; }
+    .works-panel.active { display: block; }
+
+    .works-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .work-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      padding: 1.75rem;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .work-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(26,20,16,0.1);
+    }
+
+    .work-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--saffron);
+    }
+
+    .work-year {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .work-title {
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: var(--ink);
+    }
+
+    .work-type {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ─── LITERARY LEGACY ─── */
+    .legacy-section {
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .legacy-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(180deg, var(--parchment) 0%, var(--cream) 100%);
+    }
+
+    .legacy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .slogan-block {
+      text-align: center;
+      background: var(--ink);
+      padding: 4rem 3rem;
+      position: relative;
+    }
+
+    .slogan-gurmukhi {
+      font-family: var(--ff-punjabi);
+      font-size: 2.8rem;
+      color: var(--parchment);
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    .slogan-english {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--gold-lt);
+    }
+
+    .slogan-attr {
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245,239,227,0.35);
+    }
+
+    .slogan-block::after {
+      content: '';
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      left: 16px;
+      top: 16px;
+      border: 1px solid rgba(184,146,42,0.3);
+      z-index: -1;
+    }
+
+    .legacy-content p {
+      font-size: 1.05rem;
+      color: #3A2E24;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonials {
+      margin-top: 2.5rem;
+    }
+
+    .testimonial {
+      border-left: 3px solid var(--gold);
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
+      background: rgba(184,146,42,0.05);
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonial-attr {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── SOURCES / RESEARCH ─── */
+    .sources-section {
+      background: var(--parchment);
+    }
+
+    .sources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .source-card {
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+      background: var(--cream);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .source-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .source-name {
+      font-family: var(--ff-display);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .source-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    .source-link {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: gap 0.2s;
+    }
+
+    .source-link:hover { gap: 0.6rem; }
+    .source-link::after { content: '→'; }
+
+    /* ─── FAMILY TREE ─── */
+    .family-section {
+      background: var(--ink);
+      padding: 6rem 0;
+    }
+
+    .family-section .section-label { color: var(--gold-lt); }
+    .family-section .section-label::before { background: var(--gold-lt); }
+    .family-section .section-title { color: var(--parchment); }
+
+    .family-intro {
+      color: rgba(245,239,227,0.6);
+      max-width: 600px;
+      margin-bottom: 3.5rem;
+    }
+
+    .family-tree {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .family-member {
+      background: var(--ink);
+      padding: 2rem 1.5rem;
+      transition: background 0.2s;
+    }
+
+    .family-member:hover { background: #1f1510; }
+
+    .family-role {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 0.4rem;
+    }
+
+    .family-name {
+      font-family: var(--ff-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--parchment);
+      margin-bottom: 0.25rem;
+    }
+
+    .family-note {
+      font-size: 0.82rem;
+      color: rgba(245,239,227,0.4);
+    }
+
+    /* ─── GALLERY / ARCHIVE ─── */
+    .archive-section {
+      background: var(--cream);
+    }
+
+    .archive-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .archive-item {
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .archive-item--main {
+      grid-row: span 2;
+    }
+
+    .archive-art {
+      width: 100%;
+      height: 100%;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 2.5rem;
+      gap: 1rem;
+      position: relative;
+    }
+
+    .archive-art-1 { background: linear-gradient(135deg, #1a1410, #2c1c0e); min-height: 460px; }
+    .archive-art-2 { background: linear-gradient(135deg, #0e1a14, #162010); }
+    .archive-art-3 { background: linear-gradient(135deg, #14101a, #1a1428); }
+    .archive-art-4 { background: linear-gradient(135deg, #1a1408, #261e08); }
+    .archive-art-5 { background: linear-gradient(135deg, #1a0e0e, #2a1010); }
+
+    .archive-text {
+      font-family: var(--ff-punjabi);
+      font-size: 3rem;
+      color: rgba(245,239,227,0.07);
+      text-align: center;
+    }
+
+    .archive-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.25rem 1.5rem;
+      background: linear-gradient(to top, rgba(26,20,16,0.95), transparent);
+    }
+
+    .archive-label-title {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--parchment);
+      margin-bottom: 0.2rem;
+    }
+
+    .archive-label-sub {
+      font-size: 0.75rem;
+      color: var(--gold-lt);
+      letter-spacing: 0.08em;
+    }
+
+    /* available badge */
+    .archive-badge {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: var(--saffron);
+      color: var(--parchment);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.6rem;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #100D09;
+      padding: 5rem 0 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .footer-brand-name {
+      font-family: var(--ff-display);
+      font-size: 1.6rem;
+      color: var(--parchment);
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-brand-punjabi {
+      font-family: var(--ff-punjabi);
+      font-size: 1rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand-desc {
+      font-size: 0.88rem;
+      color: rgba(245,239,227,0.4);
+      line-height: 1.7;
+    }
+
+    .footer-col-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-links a {
+      font-size: 0.9rem;
+      color: rgba(245,239,227,0.45);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--parchment); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: rgba(245,239,227,0.25);
+    }
+
+    .footer-domain {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      color: var(--saffron);
+      opacity: 0.7;
+    }
+
+    /* ─── DIVIDER ORNAMENT ─── */
+    .ornament-divider {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+
+    .ornament-divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .ornament-divider-motif {
+      color: var(--gold);
+      font-size: 1.2rem;
+      opacity: 0.6;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-left {
+        padding: 8rem 2rem 4rem;
+        min-height: 60vh;
+      }
+
+      .hero-left::after { display: none; }
+
+      .hero-right {
+        padding: 4rem 2rem;
+      }
+
+      .bio-grid,
+      .legacy-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+      .awards-grid,
+      .sources-grid { grid-template-columns: 1fr; }
+
+      .family-tree { grid-template-columns: 1fr 1fr; }
+
+      .archive-grid { grid-template-columns: 1fr; }
+      .archive-item--main { grid-row: auto; }
+
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+
+      .works-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav>
+    <span class="nav-brand">ਰਾਹੀ ਸਭਾ · Rahi Sabha</span>
+    <ul class="nav-links">
+      <li><a href="#biography">Life</a></li>
+      <li><a href="#works">Works</a></li>
+      <li><a href="#legacy">Legacy</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#family">Family</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">ਰਾਸ਼ਟਰੀ ਕਵੀ · Rashtriya Kavi of India</p>
+      <h1 class="hero-title">Jaswant<br/>Singh <em>Rahi</em></h1>
+      <p class="hero-subtitle">ਜਸਵੰਤ ਸਿੰਘ ਰਾਹੀ</p>
+      <p class="hero-dates">16 March 1913 &nbsp;—&nbsp; 11 April 1996</p>
+    </div>
+    <div class="hero-right">
+      <div class="hero-quote-mark">"</div>
+      <blockquote class="hero-quote">
+        In the galaxy of progressive Punjabi bards of North India, Jaswant Singh Rahi excels in composing quatrains in an unparalleled style. He has endeavoured to preach unity of godhead, brotherhood of man, secularism, and above all international friendship.
+      </blockquote>
+      <p class="hero-quote-attr">— Joginder Singh Bedi, The Tribune, Chandigarh, 1992</p>
+      <div class="hero-ornament">
+        <div class="hero-ornament-line"></div>
+        <div class="hero-ornament-diamond"></div>
+        <div class="hero-ornament-line" style="background: linear-gradient(270deg, var(--gold), transparent);"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SCROLLING STRIP ─── -->
+  <div class="intro-strip" aria-hidden="true">
+    <div class="intro-scroll">
+      <span>ਜੈ ਮਿੱਤਰਤਾ</span>
+      <span class="dot">✦</span>
+      <span>Poet &amp; Freedom Fighter</span>
+      <span class="dot">✦</span>
+      <span>ਪੰਜਾਬੀ ਸਾਹਿਤ ਸ਼ਿਰੋਮਣੀ</span>
+      <span class="dot">✦</span>
+      <span>National Poet · 1972</span>
+      <span class="dot">✦</span>
+      <span>Dera Baba Nanak, Punjab</span>
+      <span class="dot">✦</span>
+      <span>ਜੈ ਮਿੱਤਰਤਾ</span>
+      <span class="dot">✦</span>
+      <span>Poet &amp; Freedom Fighter</span>
+      <span class="dot">✦</span>
+      <span>ਪੰਜਾਬੀ ਸਾਹਿਤ ਸ਼ਿਰੋਮਣੀ</span>
+      <span class="dot">✦</span>
+      <span>National Poet · 1972</span>
+      <span class="dot">✦</span>
+      <span>Dera Baba Nanak, Punjab</span>
+      <span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- ─── BIOGRAPHY ─── -->
+  <section class="bio-section" id="biography">
+    <div class="container">
+      <p class="section-label reveal">Life &amp; Times</p>
+      <div class="bio-grid">
+        <div class="bio-portrait reveal">
+          <div class="bio-portrait-frame">
+            <div class="bio-portrait-art">
+              <div class="bio-portrait-gurmukhi">ਜਸਵੰਤ<br/>ਸਿੰਘ<br/>ਰਾਹੀ</div>
+              <div class="bio-portrait-name-art">Rahi</div>
+              <div class="bio-portrait-year">1913 — 1996</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bio-content reveal">
+          <h2 class="section-title">A Voice of <em>Revolution</em> and Brotherhood</h2>
+          <p>
+            Jaswant Singh Rahi was born on 16 March 1913 in the sacred town of Dera Baba Nanak, Gurdaspur district, Punjab — and he never left. His roots ran as deep as the rivers of his homeland, and it was from this soil that one of Punjabi literature's most honest and enduring voices emerged.
+          </p>
+          <p>
+            Born into a Rajput (Jaswal) family devoted to India's independence movement, Rahi was drawn from youth toward the twin fires of patriotism and literature. Inspired by the freedom struggle, he joined the Communist movement and formally adopted the name <em>Rahi</em> — meaning "the traveller on the path" — as a symbol of his ideological journey.
+          </p>
+          <p>
+            He was a close companion of Baba Pyare Lal Bedi, the Punjabi Sikh philosopher, and became a mentor to some of the greatest names in Punjabi letters. The legendary poet Shiv Kumar Batalvi spent weeks at Rahi's home in Dera Baba Nanak during his formative years, absorbing the elder poet's wisdom.
+          </p>
+          <p>
+            Rahi's life was one of fearless authenticity. Critics noted that his three-part autobiography, <em>Main Kiven Jeeveya</em> (How I Lived), concealed nothing — every incident recorded with unflinching honesty, regardless of consequence.
+          </p>
+
+          <div class="bio-facts">
+            <div>
+              <div class="bio-fact-label">Born</div>
+              <div class="bio-fact-value">16 March 1913</div>
+            </div>
+            <div>
+              <div class="bio-fact-label">Passed Away</div>
+              <div class="bio-fact-value">11 April 1996</div>
+            </div>
+            <div>
+              <div class="bio-fact-label">Hometown</div>
+              <div class="bio-fact-value">Dera Baba Nanak, Gurdaspur</div>
+            </div>
+            <div>
+              <div class="bio-fact-label">Active Years</div>
+              <div class="bio-fact-value">1930 — 1996</div>
+            </div>
+            <div>
+              <div class="bio-fact-label">Genres</div>
+              <div class="bio-fact-value">Poetry, Fiction, Autobiography</div>
+            </div>
+            <div>
+              <div class="bio-fact-label">Movement</div>
+              <div class="bio-fact-value">Progressive Punjabi Literature</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── AWARDS ─── -->
+  <section class="awards-band" id="awards">
+    <div class="container">
+      <p class="section-label reveal">Honours &amp; Recognition</p>
+      <h2 class="section-title reveal">Celebrated by a <em>Nation</em></h2>
+      <div class="awards-grid reveal">
+        <div class="award-card">
+          <div class="award-icon">🏅</div>
+          <div class="award-title">Rashtriya Kavi</div>
+          <div class="award-desc">Conferred the title of National Poet by the Government of India for his immense contribution to Punjabi literature.</div>
+          <div class="award-year">26 January 1972</div>
+        </div>
+        <div class="award-card">
+          <div class="award-icon">📜</div>
+          <div class="award-title">Tamra Patra — Indira Gandhi</div>
+          <div class="award-desc">Awarded the Tamra Patra (Copper Plaque of Honour) by Prime Minister Indira Gandhi in recognition of his literary and patriotic contributions.</div>
+          <div class="award-year">Government of India</div>
+        </div>
+        <div class="award-card">
+          <div class="award-icon">📜</div>
+          <div class="award-title">Tamra Patra — Rajiv Gandhi</div>
+          <div class="award-desc">Received the Tamra Patra a second time from Prime Minister Rajiv Gandhi, affirming his enduring national recognition.</div>
+          <div class="award-year">Government of India</div>
+        </div>
+        <div class="award-card">
+          <div class="award-icon">✍️</div>
+          <div class="award-title">Punjabi Sahit Shiromani</div>
+          <div class="award-desc">The highest honour in Punjabi letters, conferred by the Punjabi Sahit Academy, placing Rahi among the greatest writers of the language.</div>
+          <div class="award-year">Punjabi Sahit Academy</div>
+        </div>
+        <div class="award-card">
+          <div class="award-icon">🌟</div>
+          <div class="award-title">Punjabi Lekhari Sabha Award</div>
+          <div class="award-desc">Recognised by the Punjabi Writers' Association for his sustained and influential body of work across multiple literary genres.</div>
+          <div class="award-year">Punjabi Lekhari Sabha</div>
+        </div>
+        <div class="award-card">
+          <div class="award-icon">🏛️</div>
+          <div class="award-title">Presidential Correspondence</div>
+          <div class="award-desc">His letters on contemporary social concerns were personally acknowledged by President Giani Zail Singh. These correspondences are preserved by the Rahi family.</div>
+          <div class="award-year">Rashtrapati Bhavan</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WORKS ─── -->
+  <section class="works-section" id="works">
+    <div class="container">
+      <p class="section-label reveal">Bibliography</p>
+      <h2 class="section-title reveal">A Life's <em>Work</em> in Words</h2>
+      <div class="works-intro reveal">
+        <p>Across six decades of active writing, Rahi produced poetry collections, short stories, novels, a historical verse-epic, and a three-volume autobiography — all in the Punjabi language, all rooted in his commitment to social justice and human dignity.</p>
+      </div>
+
+      <div class="works-tabs reveal" role="tablist">
+        <button class="works-tab active" onclick="switchTab(event,'poetry')" role="tab">Poetry</button>
+        <button class="works-tab" onclick="switchTab(event,'fiction')" role="tab">Fiction &amp; Stories</button>
+        <button class="works-tab" onclick="switchTab(event,'autobiography')" role="tab">Autobiography</button>
+      </div>
+
+      <div class="works-panel active" id="tab-poetry">
+        <div class="works-list">
+          <div class="work-card reveal">
+            <div class="work-year">1952</div>
+            <div class="work-title">Lishkan</div>
+            <div class="work-type">Poetry Collection</div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-year">1966</div>
+            <div class="work-title">Dojakh Di Agg</div>
+            <div class="work-type">Poetry Collection — Fire of Hell</div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-year">1969</div>
+            <div class="work-title">Noor Upaiya</div>
+            <div class="work-type">Poetry Collection</div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-year">1970</div>
+            <div class="work-title">Jassa Singh Ramgarhia</div>
+            <div class="work-type">Mahakavya — Verse Epic</div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-year">1972</div>
+            <div class="work-title">Kaudian Khurmaniyan</div>
+            <div class="work-type">Short Story Collection</div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-year">1983</div>
+            <div class="work-title">Aades Tise Aades</div>
+            <div class="work-type">Religious Poetry</div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-year">1988</div>
+            <div class="work-title">Parchhavian da Sach</div>
+            <div class="work-type">Poetry Collection — Truth of Shadows</div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-year">1996</div>
+            <div class="work-title">Dohre Rahi De</div>
+            <div class="work-type">Couplets / Dohas</div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-year">1996</div>
+            <div class="work-title">Lahoo De Timakane</div>
+            <div class="work-type">Final Poetry Collection</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="works-panel" id="tab-fiction">
+        <div class="works-list">
+          <div class="work-card reveal">
+            <div class="work-year">1975</div>
+            <div class="work-title">Sachha Jhutha</div>
+            <div class="work-type">Short Story Collection</div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-year">1978</div>
+            <div class="work-title">Tutde Jurde Jism</div>
+            <div class="work-type">Short Story Collection</div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-year">1981</div>
+            <div class="work-title">Lahoo Bhiji Chanani</div>
+            <div class="work-type">Short Story Collection — Blood-Soaked Moonlight</div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-year">1981</div>
+            <div class="work-title">Pauna De Tarihaey</div>
+            <div class="work-type">Short Story Collection</div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-year">1982</div>
+            <div class="work-title">Kabran Da Gulab</div>
+            <div class="work-type">Short Story Collection — Rose of the Graves</div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-year">1990</div>
+            <div class="work-title">Moye Phulan da Mandar</div>
+            <div class="work-type">Short Stories — Temple of Dead Flowers</div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-year">1991</div>
+            <div class="work-title">Adhoora Safar</div>
+            <div class="work-type">Novel — The Unfinished Journey</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="works-panel" id="tab-autobiography">
+        <div class="works-list">
+          <div class="work-card reveal">
+            <div class="work-year">1991</div>
+            <div class="work-title">Main Kiven Jeeveya — Volume I</div>
+            <div class="work-type">Autobiography — How I Lived</div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-year">1993</div>
+            <div class="work-title">Main Kiven Jeeveya — Volume II</div>
+            <div class="work-type">Autobiography — How I Lived</div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-year">1995</div>
+            <div class="work-title">Main Kiven Jeeveya — Volume III</div>
+            <div class="work-type">Autobiography — How I Lived</div>
+          </div>
+        </div>
+        <div class="ornament-divider reveal">
+          <div class="ornament-divider-line"></div>
+          <span class="ornament-divider-motif">✦</span>
+          <div class="ornament-divider-line"></div>
+        </div>
+        <p class="reveal" style="color:var(--muted); font-style:italic; font-size:1rem; max-width:560px;">
+          "He did not make any attempt to hide or manipulate any incident irrespective of the consequences." — Kulbir Singh Kang, on <em>Main Kiven Jeeveya</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── LITERARY LEGACY ─── -->
+  <section class="legacy-section" id="legacy">
+    <div class="container">
+      <div class="legacy-grid">
+        <div>
+          <p class="section-label reveal">His Slogan</p>
+          <div class="slogan-block reveal">
+            <div class="slogan-gurmukhi">ਜੈ ਮਿੱਤਰਤਾ</div>
+            <div class="slogan-english">Jai Mitarta — Victory of Friendship</div>
+            <div class="slogan-attr">The lifelong refrain of Jaswant Singh Rahi</div>
+          </div>
+        </div>
+
+        <div>
+          <p class="section-label reveal">Literary Legacy</p>
+          <h2 class="section-title reveal">The <em>Progressive</em> Bard</h2>
+          <div class="legacy-content reveal">
+            <p>
+              Rahi's literary vision was rooted in the progressive movement that transformed 20th-century Punjabi letters. His poetry does not merely protest — it demands transformation: of the self, of society, of the relationship between human beings.
+            </p>
+            <p>
+              Scholar Manpreet Kaur wrote that Rahi "begins his poems with the repugnancy existing between imagination and realism," seeking to liberate individuals from "communalism, slavery and inhuman behaviour."
+            </p>
+          </div>
+
+          <div class="testimonials reveal">
+            <div class="testimonial">
+              <div class="testimonial-text">"Rahi's contribution to the Punjabi world of letters is no less than that of Dhani Ram Chatrik, Prof Mohan Singh, and Prof Puran Singh."</div>
+              <div class="testimonial-attr">— Joginder Singh Bedi, Columnist, The Tribune</div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-text">"Rahi has his own unique style of writing which is not influenced by any other prominent or popular author."</div>
+              <div class="testimonial-attr">— Kulbir Singh Kang, Literary Critic</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── RESEARCH SOURCES ─── -->
+  <section class="sources-section" id="research">
+    <div class="container">
+      <p class="section-label reveal">For Researchers</p>
+      <h2 class="section-title reveal">Find His <em>Work</em></h2>
+      <div class="sources-grid reveal">
+        <div class="source-card">
+          <div class="source-icon">📖</div>
+          <div class="source-name">Internet Archive</div>
+          <div class="source-desc">Digitised Punjabi texts including <em>Mahaka Di Dharti</em> and <em>Nur Upaya</em> available for free download in Gurmukhi.</div>
+          <a class="source-link" href="https://archive.org/search?query=Jaswant+Singh+Rahi" target="_blank" rel="noopener">archive.org</a>
+        </div>
+        <div class="source-card">
+          <div class="source-icon">🌐</div>
+          <div class="source-name">WorldCat / OCLC</div>
+          <div class="source-desc">Global library holdings of all major works. Search by VIAF ID 11445065 or Library of Congress ID n89283863.</div>
+          <a class="source-link" href="https://www.worldcat.org/search?q=au%3ARāhī%2C+Jasawanta+Siṅgha" target="_blank" rel="noopener">worldcat.org</a>
+        </div>
+        <div class="source-card">
+          <div class="source-icon">📚</div>
+          <div class="source-name">Open Library</div>
+          <div class="source-desc">Author profile listing published editions of <em>Adhura Safar</em>, <em>Lahoo Bhiji Chanani</em>, and more.</div>
+          <a class="source-link" href="https://openlibrary.org/authors/OL4369821A/Jaswant_Singh_Rahi" target="_blank" rel="noopener">openlibrary.org</a>
+        </div>
+        <div class="source-card">
+          <div class="source-icon">🎓</div>
+          <div class="source-name">Shodhganga / INFLIBNET</div>
+          <div class="source-desc">India's national PhD thesis repository. Search for Rahi's name in Punjabi literature studies from Punjabi University, Patiala and Guru Nanak Dev University.</div>
+          <a class="source-link" href="https://shodhganga.inflibnet.ac.in" target="_blank" rel="noopener">shodhganga.inflibnet.ac.in</a>
+        </div>
+        <div class="source-card">
+          <div class="source-icon">📰</div>
+          <div class="source-name">The Tribune, Chandigarh</div>
+          <div class="source-desc">Joginder Singh Bedi's 1992 column "Jai Mitarta — Living up to his slogan" is a key primary source available in the Tribune archives.</div>
+          <a class="source-link" href="https://www.tribuneindia.com" target="_blank" rel="noopener">tribuneindia.com</a>
+        </div>
+        <div class="source-card">
+          <div class="source-icon">🏛️</div>
+          <div class="source-name">Hindi Book Centre, Delhi</div>
+          <div class="source-desc">Physical copies of works including <em>Adhura Safar</em> and <em>Mahan Yodha Sardar Jassa Singh Ramgarhia</em> available for purchase.</div>
+          <a class="source-link" href="https://www.hindibook.com" target="_blank" rel="noopener">hindibook.com</a>
+        </div>
+        <div class="source-card">
+          <div class="source-icon">🔬</div>
+          <div class="source-name">Central University of Punjab</div>
+          <div class="source-desc">Manpreet Kaur's thesis "Theme of Revolt in Selected Poems of Pash and Lal Singh Dil" cites Rahi extensively. Available as open-access PDF.</div>
+          <a class="source-link" href="http://kr.cup.edu.in/bitstream/handle/32116/1649/T00031.pdf" target="_blank" rel="noopener">cup.edu.in</a>
+        </div>
+        <div class="source-card">
+          <div class="source-icon">🌍</div>
+          <div class="source-name">Wikipedia / DBpedia</div>
+          <div class="source-desc">English, Punjabi (Gurmukhi), Punjabi (Shahmukhi), and Urdu Wikipedia entries, all linked through the Wikidata authority record Q6164367.</div>
+          <a class="source-link" href="https://en.wikipedia.org/wiki/Jaswant_Singh_Rahi" target="_blank" rel="noopener">wikipedia.org</a>
+        </div>
+        <div class="source-card">
+          <div class="source-icon">🏠</div>
+          <div class="source-name">Chakra Foundation</div>
+          <div class="source-desc">Detailed biographical profile maintained by a heritage organisation, including details of family, literary circle, and mentorship of Shiv Kumar Batalvi.</div>
+          <a class="source-link" href="https://chakrafoundation.org/jaswant-singh-rahi/" target="_blank" rel="noopener">chakrafoundation.org</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAMILY ─── -->
+  <section class="family-section" id="family">
+    <div class="container">
+      <p class="section-label reveal">The Rahi Family</p>
+      <h2 class="section-title reveal">A <em>Legacy</em> Carried Forward</h2>
+      <p class="family-intro reveal">Rahi married Satwant Kaur of Fatehgarh Churian, Gurdaspur. They had eight children. His literary and journalistic legacy continues through his descendants.</p>
+      <div class="family-tree reveal">
+        <div class="family-member">
+          <div class="family-role">Spouse</div>
+          <div class="family-name">Satwant Kaur</div>
+          <div class="family-note">Fatehgarh Churian, Gurdaspur</div>
+        </div>
+        <div class="family-member">
+          <div class="family-role">Son</div>
+          <div class="family-name">Rajwant Singh Rahi</div>
+          <div class="family-note">Elder son</div>
+        </div>
+        <div class="family-member">
+          <div class="family-role">Son</div>
+          <div class="family-name">Inderjeet Singh Rahi</div>
+          <div class="family-note">Second son</div>
+        </div>
+        <div class="family-member">
+          <div class="family-role">Son</div>
+          <div class="family-name">Sarbjeet Singh Rahi</div>
+          <div class="family-note">Third son</div>
+        </div>
+        <div class="family-member">
+          <div class="family-role">Daughter</div>
+          <div class="family-name">Sukhbir Kaur</div>
+          <div class="family-note">Social activist &amp; Punjabi writer</div>
+        </div>
+        <div class="family-member">
+          <div class="family-role">Grandson</div>
+          <div class="family-name">Dr. Baninder Rahi</div>
+          <div class="family-note">Journalist &amp; media educator; Indian Express, The Pioneer, Daily Post India</div>
+        </div>
+        <div class="family-member">
+          <div class="family-role">Mentor to</div>
+          <div class="family-name">Shiv Kumar Batalvi</div>
+          <div class="family-note">Sahitya Akademi laureate; stayed at Rahi's home in Dera Baba Nanak</div>
+        </div>
+        <div class="family-member">
+          <div class="family-role">Mentor to</div>
+          <div class="family-name">Rajwant Kaur Nagi</div>
+          <div class="family-note">Punjabi writer; guided during early literary career</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DIGITAL ARCHIVE ─── -->
+  <section class="archive-section" id="archive">
+    <div class="container">
+      <p class="section-label reveal">Digital Archive</p>
+      <h2 class="section-title reveal">Works Available <em>Online</em></h2>
+      <div class="archive-grid reveal">
+        <div class="archive-item archive-item--main">
+          <div class="archive-art archive-art-1">
+            <div class="archive-text">ਮਹਿਕਾ ਦੀ ਧਰਤੀ</div>
+          </div>
+          <div class="archive-label">
+            <div class="archive-label-title">Mahaka Di Dharti</div>
+            <div class="archive-label-sub">Gurmukhi Punjabi · Full text · Internet Archive</div>
+          </div>
+          <div class="archive-badge">Free Download</div>
+        </div>
+        <div class="archive-item">
+          <div class="archive-art archive-art-2">
+            <div class="archive-text">ਨੂਰ ਉਪਾਇਆ</div>
+          </div>
+          <div class="archive-label">
+            <div class="archive-label-title">Nur Upaya</div>
+            <div class="archive-label-sub">Poetry · Internet Archive</div>
+          </div>
+          <div class="archive-badge">Free Download</div>
+        </div>
+        <div class="archive-item">
+          <div class="archive-art archive-art-3">
+            <div class="archive-text">ਅਧੂਰਾ ਸਫ਼ਰ</div>
+          </div>
+          <div class="archive-label">
+            <div class="archive-label-title">Adhoora Safar</div>
+            <div class="archive-label-sub">Novel · Open Library</div>
+          </div>
+        </div>
+        <div class="archive-item">
+          <div class="archive-art archive-art-4">
+            <div class="archive-text">ਲਹੂ ਭਿੱਜੀ ਚਾਨਣੀ</div>
+          </div>
+          <div class="archive-label">
+            <div class="archive-label-title">Lahoo Bhiji Chanani</div>
+            <div class="archive-label-sub">Stories · Open Library</div>
+          </div>
+        </div>
+        <div class="archive-item">
+          <div class="archive-art archive-art-5">
+            <div class="archive-text">ਮੈਂ ਕਿਵੇਂ ਜੀਵਿਆ</div>
+          </div>
+          <div class="archive-label">
+            <div class="archive-label-title">Main Kiven Jeeveya</div>
+            <div class="archive-label-sub">Autobiography · WorldCat OCLC 26364330</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">Rahi Sabha</div>
+          <div class="footer-brand-punjabi">ਰਾਹੀ ਸਭਾ</div>
+          <p class="footer-brand-desc">A memorial website dedicated to the life, literature, and lasting legacy of Jaswant Singh Rahi — National Poet of India, Punjabi Sahit Shiromani, and voice of the people.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Navigate</div>
+          <ul class="footer-links">
+            <li><a href="#biography">Biography</a></li>
+            <li><a href="#works">Complete Works</a></li>
+            <li><a href="#legacy">Literary Legacy</a></li>
+            <li><a href="#research">Research Sources</a></li>
+            <li><a href="#family">Family</a></li>
+            <li><a href="#archive">Digital Archive</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">External Sources</div>
+          <ul class="footer-links">
+            <li><a href="https://en.wikipedia.org/wiki/Jaswant_Singh_Rahi" target="_blank" rel="noopener">Wikipedia</a></li>
+            <li><a href="https://archive.org/search?query=Jaswant+Singh+Rahi" target="_blank" rel="noopener">Internet Archive</a></li>
+            <li><a href="https://openlibrary.org/authors/OL4369821A/Jaswant_Singh_Rahi" target="_blank" rel="noopener">Open Library</a></li>
+            <li><a href="https://chakrafoundation.org/jaswant-singh-rahi/" target="_blank" rel="noopener">Chakra Foundation</a></li>
+            <li><a href="https://www.worldcat.org/search?q=au%3ARāhī" target="_blank" rel="noopener">WorldCat</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Authority IDs</div>
+          <ul class="footer-links">
+            <li><a href="https://viaf.org/viaf/11445065" target="_blank" rel="noopener">VIAF: 11445065</a></li>
+            <li><a href="https://lccn.loc.gov/n89283863" target="_blank" rel="noopener">LCCN: n89283863</a></li>
+            <li><a href="https://www.wikidata.org/wiki/Q6164367" target="_blank" rel="noopener">Wikidata: Q6164367</a></li>
+            <li><a>ISNI: 0000000063843428</a></li>
+            <li><a>FAST ID: 299756</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Rahi Sabha · rahisabha.org · In memory of Jaswant Singh Rahi (1913–1996)</p>
+        <span class="footer-domain">rahisabha.org</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── TAB SWITCHING ───
+    function switchTab(e, id) {
+      document.querySelectorAll('.works-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.works-panel').forEach(p => p.classList.remove('active'));
+      e.target.classList.add('active');
+      document.getElementById('tab-' + id).classList.add('active');
+    }
+
+    // ─── SCROLL REVEAL ───
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          // stagger siblings
+          const siblings = [...entry.target.parentElement.querySelectorAll('.reveal:not(.visible)')];
+          const idx = siblings.indexOf(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, Math.min(idx * 80, 300));
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // ─── NAV ACTIVE STATE ───
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section[id]');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--saffron)' : '';
+      });
+    });
+  </script>
+</body>
+</html>
